@@ -21,8 +21,8 @@
 #include "logmanager.h"
 #include "loggers.h"
 
-template<> LogManager* Mgr<LogManager>::instance = nullptr;
-template<> bool  Mgr<LogManager>::isShutdown = false;
+template<class LogManager> LogManager* Mgr<LogManager>::instance = nullptr;
+template<class LogManager> bool  Mgr<LogManager>::isShutdown = false;
 
 static NullLogger g_null_log;
 

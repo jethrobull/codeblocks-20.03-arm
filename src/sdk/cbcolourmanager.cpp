@@ -15,8 +15,8 @@
 
 #include "cbcolourmanager.h"
 
-template<> ColourManager* Mgr<ColourManager>::instance = nullptr;
-template<> bool  Mgr<ColourManager>::isShutdown = false;
+template<class ColourManager> ColourManager* Mgr<ColourManager>::instance = nullptr;
+template<class ColourManager> bool  Mgr<ColourManager>::isShutdown = false;
 
 void ColourManager::Load()
 {

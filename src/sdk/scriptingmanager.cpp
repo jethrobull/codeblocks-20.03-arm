@@ -34,8 +34,8 @@
 #include "sc_plugin.h"
 #include "sqstdstring.h"
 
-template<> ScriptingManager* Mgr<ScriptingManager>::instance = nullptr;
-template<> bool  Mgr<ScriptingManager>::isShutdown = false;
+template<class ScriptingManager> ScriptingManager* Mgr<ScriptingManager>::instance = nullptr;
+template<class ScriptingManager> bool  Mgr<ScriptingManager>::isShutdown = false;
 
 static wxString s_ScriptErrors;
 static wxString capture;

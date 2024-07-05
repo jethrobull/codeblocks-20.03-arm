@@ -20,8 +20,8 @@
 
 #include <wx/arrstr.h>
 
-template<> PersonalityManager* Mgr<PersonalityManager>::instance = nullptr;
-template<> bool  Mgr<PersonalityManager>::isShutdown = false;
+template<class PersonalityManager> PersonalityManager* Mgr<PersonalityManager>::instance = nullptr;
+template<class PersonalityManager> bool  Mgr<PersonalityManager>::isShutdown = false;
 
 PersonalityManager::PersonalityManager()
 {

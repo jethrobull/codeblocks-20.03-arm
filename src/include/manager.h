@@ -201,6 +201,8 @@ private:
     cbSearchResultsLog *m_SearchResultLog;
 };
 
+
+
 template <class MgrT> class DLLIMPORT Mgr
 {
     static MgrT *instance;
@@ -212,6 +214,7 @@ protected:
 
     Mgr()          { assert(Mgr<MgrT>::instance == nullptr); }
     virtual ~Mgr() { Mgr<MgrT>::instance = nullptr; }
+
 
 public:
 
@@ -235,6 +238,7 @@ public:
         delete instance;
         instance = nullptr;
     }
+
 };
 
 #endif // MANAGER_H

@@ -674,8 +674,8 @@ wxWindow* DebugTextCtrlLogger::CreateControl(wxWindow* parent)
     return m_panel;
 }
 
-template<> DebuggerManager* Mgr<DebuggerManager>::instance = nullptr;
-template<> bool  Mgr<DebuggerManager>::isShutdown = false;
+template<class DebuggerManager> DebuggerManager* Mgr<DebuggerManager>::instance = nullptr;
+template<class DebuggerManager> bool  Mgr<DebuggerManager>::isShutdown = false;
 
 inline void ReadActiveDebuggerConfig(wxString &name, int &configIndex)
 {

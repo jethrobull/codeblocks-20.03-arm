@@ -49,8 +49,8 @@
 #include "projectfileoptionsdlg.h"
 #include "filegroupsandmasks.h"
 
-template<> EditorManager* Mgr<EditorManager>::instance = nullptr;
-template<> bool  Mgr<EditorManager>::isShutdown = false;
+template<class EditorManager> EditorManager* Mgr<EditorManager>::instance = nullptr;
+template<class EditorManager> bool  Mgr<EditorManager>::isShutdown = false;
 
 int ID_NBEditorManager        = wxNewId();
 int ID_EditorManager          = wxNewId();

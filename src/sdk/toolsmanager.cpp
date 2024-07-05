@@ -29,8 +29,8 @@
 #include <wx/listimpl.cpp>
 #include "configuretoolsdlg.h"
 
-template<> ToolsManager* Mgr<ToolsManager>::instance = nullptr;
-template<> bool  Mgr<ToolsManager>::isShutdown = false;
+template<class ToolsManager> ToolsManager* Mgr<ToolsManager>::instance = nullptr;
+template<class ToolsManager> bool  Mgr<ToolsManager>::isShutdown = false;
 
 WX_DEFINE_LIST(ToolsList);
 

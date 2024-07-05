@@ -69,7 +69,7 @@
 #endif
 
 #ifdef __WXMSW__
-#include "exchndl.h"         // Crash handler DLL -> includes windows.h, therefore
+//#include "exchndl.h"         // Crash handler DLL -> includes windows.h, therefore
 #include <wx/msw/winundef.h> // ...include this header file on the NEXT LINE (wxWidgets docs say so)
 #endif
 
@@ -480,7 +480,7 @@ void CodeBlocksApp::InitDebugConsole()
 void CodeBlocksApp::InitExceptionHandler()
 {
 #ifdef __WXMSW__
-    ExcHndlInit();
+//    ExcHndlInit();
 #endif
 }
 

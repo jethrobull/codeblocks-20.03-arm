@@ -38,8 +38,8 @@
 
 #include <ctype.h>
 
-template<> UserVariableManager* Mgr<UserVariableManager>::instance   = nullptr;
-template<> bool                 Mgr<UserVariableManager>::isShutdown = false;
+template<class UserVariableManager> UserVariableManager* Mgr<UserVariableManager>::instance   = nullptr;
+template<class UserVariableManager> bool                 Mgr<UserVariableManager>::isShutdown = false;
 
 const wxString cBase     (_T("base"));
 const wxString cDir      (_T("dir"));

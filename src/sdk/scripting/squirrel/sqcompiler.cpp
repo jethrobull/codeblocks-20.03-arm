@@ -3,7 +3,7 @@
 */
 #include "sqpcheader.h"
 #include <stdarg.h>
-#include <setjmp.h>
+#include <C:\cb\MinGW\include\setjmp.h>
 #include "sqopcodes.h"
 #include "sqstring.h"
 #include "sqfuncproto.h"

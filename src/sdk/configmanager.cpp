@@ -57,8 +57,8 @@
 #include <glib.h>
 #endif // __linux__
 
-template<> CfgMgrBldr* Mgr<CfgMgrBldr>::instance = nullptr;
-template<> bool  Mgr<CfgMgrBldr>::isShutdown = false;
+template<class CfgMgrBldr> CfgMgrBldr* Mgr<CfgMgrBldr>::instance = nullptr;
+template<class CfgMgrBldr> bool  Mgr<CfgMgrBldr>::isShutdown = false;
 
 wxString ConfigManager::alternate_user_data_path;
 bool ConfigManager::has_alternate_user_data_path=false;

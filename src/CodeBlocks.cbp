@@ -4,13 +4,13 @@
 	<Project>
 		<Option title="Code::Blocks wx2.8.x" />
 		<Option default_target="src" />
-		<Option compiler="gcc" />
+		<Option compiler="arm-elf-gcc" />
 		<Build>
 			<Target title="tinyXML">
 				<Option output="devel/txml" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add directory="include/tinyxml" />
 				</Compiler>
@@ -18,7 +18,7 @@
 			<Target title="AutoRevision">
 				<Option output="$(TARGET_OBJECT_DIR)/autorevision" prefix_auto="1" extension_auto="1" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option projectLinkerOptionsRelation="1" />
 				<Compiler>
 					<Add directory="include" />
@@ -32,7 +32,7 @@
 				<Option output="devel/cb_console_runner" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="tools/ConsoleRunner" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option projectLinkerOptionsRelation="1" />
 				<Compiler>
 					<Add option="-Os" />
@@ -42,7 +42,7 @@
 				<Option output="devel/squirrel" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-fno-inline" />
 					<Add directory="include/scripting/include" />
@@ -54,7 +54,7 @@
 				<Option working_dir="" />
 				<Option external_deps="devel/libsquirrel.a;" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-fno-inline" />
 					<Add directory="include/scripting/include" />
@@ -66,7 +66,7 @@
 				<Option working_dir="" />
 				<Option external_deps="devel/libsquirrel.a;devel/libsqstdlib.a;" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-fno-inline" />
 					<Add directory="include/scripting/include" />
@@ -77,7 +77,7 @@
 				<Option output="devel/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-D__WX__" />
 					<Add option="-DWINVER=0x0501" />
@@ -93,7 +93,6 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add library="gdi32" />
@@ -103,7 +102,7 @@
 				<Option output="devel/wxpropgrid" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-DEXPORT_LIB" />
@@ -116,7 +115,6 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 				</Linker>
@@ -126,11 +124,12 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libtxml.a;devel/libsquirrel.a;devel/libsqstdlib.a;devel/libsqplus.a;devel/libwxscintilla_cb.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
 				<Option createStaticLib="1" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
+					<Add option="-w" />
 					<Add option="-Woverloaded-virtual" />
 					<Add option="-DEXPORT_LIB" />
 					<Add option="-DEXPORT_EVENTS" />
@@ -151,7 +150,6 @@
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
 					<Add option="-Wl,--export-all-symbols" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add library="shfolder" />
@@ -164,10 +162,7 @@
 					<Add library="gdi32" />
 				</Linker>
 				<ExtraCommands>
-					<Add before="$(TARGET_OBJECT_DIR)\autorevision +wx +int +t .. include/autorevision.h" />
 					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\manager_resources.zip sdk\resources\*.xrc" />
-					<Add after='cmd /c &quot;cd sdk\resources &amp; zip -0 -q ..\..\devel\share\CodeBlocks\manager_resources.zip images\*.png images\8x8\*.png images\10x10\*.png images\12x12\*.png images\16x16\*.png images\20x20\*.png images\24x24\*.png images\28x28\*.png images\32x32\*.png images\40x40\*.png images\48x48\*.png images\56x56\*.png images\64x64\*.png&quot;' />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -176,7 +171,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="0" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
@@ -197,7 +192,6 @@
 					<Add option="-Wl,--no-undefined" />
 					<Add library="codeblocks" />
 					<Add library="wxpropgrid" />
-					<Add library="exchndl" />
 					<Add library="shfolder" />
 					<Add library="kernel32" />
 					<Add library="user32" />
@@ -217,12 +211,6 @@
 				</Linker>
 				<ExtraCommands>
 					<Add before="cmd /c if exist devel\exchndl.dll del devel\exchndl.dll" />
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\resources.zip src\resources\*.xrc" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\start_here.zip src\resources\start_here\*.html src\resources\start_here\*.png" />
-					<Add after='cmd /c &quot;cd src\resources &amp; zip -0 -q ..\..\devel\share\CodeBlocks\resources.zip images\*.png images\16x16\*.png&quot;' />
-					<Add after="cmd /c if not exist devel\exchndl.dll if exist exchndl\win32\bin\*.dll xcopy /Y exchndl\win32\bin\*.dll devel\" />
-					<Add after="cmd /c if not exist devel\symsrv.yes if exist exchndl\win32\bin\symsrv.yes xcopy /Y exchndl\win32\bin\symsrv.yes devel\" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -231,7 +219,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -245,7 +233,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -263,7 +250,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -276,7 +263,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -294,7 +280,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -305,7 +291,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -322,7 +307,7 @@
 				<Option output="devel/depslib" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option type="2" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-DDEPSLIB_WINDOWS" />
 				</Compiler>
@@ -336,7 +321,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;devel/libdepslib.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -350,7 +335,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -368,41 +352,12 @@
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
-			<Target title="Debugger">
-				<Option output="devel/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel" />
-				<Option external_deps="devel/libcodeblocks.a;" />
-				<Option type="3" />
-				<Option compiler="gcc" />
-				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-				<Option host_application="./codeblocks.exe" />
-				<Option run_host_application_in_terminal="0" />
-				<Option projectLinkerOptionsRelation="1" />
-				<Compiler>
-					<Add option="-DBUILDING_PLUGIN" />
-					<Add directory="include" />
-				</Compiler>
-				<Linker>
-					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
-					<Add option="-Wl,--enable-auto-import" />
-					<Add option="-Wl,--no-undefined" />
-					<Add option="-mthreads" />
-					<Add library="codeblocks" />
-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-				</Linker>
-				<ExtraCommands>
-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
-					<Add after="zip -jq9 devel\share\CodeBlocks\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc" />
-					<Mode after="always" />
-				</ExtraCommands>
-			</Target>
 			<Target title="Code-completion">
 				<Option output="devel/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -419,7 +374,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -437,7 +391,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -448,7 +402,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -466,7 +419,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -477,7 +430,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -495,7 +447,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -506,7 +458,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -524,7 +475,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -535,7 +486,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -553,7 +503,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -570,7 +520,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -588,7 +537,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -601,7 +550,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -619,7 +567,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -636,7 +584,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -654,7 +601,7 @@
 				<Option working_dir="devel" />
 				<Option external_deps="devel/libcodeblocks.a;" />
 				<Option type="3" />
-				<Option compiler="gcc" />
+				<Option compiler="arm-elf-gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option host_application="./codeblocks.exe" />
 				<Option run_host_application_in_terminal="0" />
@@ -665,7 +612,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
@@ -685,12 +631,12 @@
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
-			<Add alias="Core app &amp; plugins" targets="sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+			<Add alias="Core app &amp; plugins" targets="sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
 			<Add alias="Third-party libs" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;Compiler depslib;" />
 		</VirtualTargets>
 		<Compiler>
-			<Add option="-Wall" />
+			<Add option="-w" />
 			<Add option="$(#CB_RELEASE_TYPE)" />
 			<Add option="-pipe" />
 			<Add option="-mthreads" />
@@ -698,7 +644,6 @@
 			<Add option="-fexceptions" />
 			<Add option="-Winvalid-pch" />
 			<Add option='[[if (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.8.0&quot;)) print(_T(&quot;-Wno-unused-local-typedefs&quot;));]]' />
-			<Add option="-std=gnu++11" />
 			<Add option="-DHAVE_W32API_H" />
 			<Add option="-D__WXMSW__" />
 			<Add option="-DWXUSINGDLL" />
@@ -2011,97 +1956,97 @@
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_commands.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_driver.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_driver.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/databreakpointdlg.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/databreakpointdlg.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debugger_defs.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debugger_defs.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerdriver.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerdriver.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggergdb.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggergdb.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerstate.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerstate.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editbreakpointdlg.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editbreakpointdlg.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editwatchdlg.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editwatchdlg.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_commands.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_driver.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_driver.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/parsewatchvalue.cpp">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/parsewatchvalue.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/remotedebugging.h">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/breakpoints.xrc">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/debugger_options_dlg.xrc">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/debugger_project_options_dlg.xrc">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/edit_watches_dlg.xrc">
-			<Option target="Debugger" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp">
 			<Option target="Default MIME handler" />
@@ -4379,8 +4324,6 @@
 			<Option target="src" />
 		</Unit>
 		<Extensions>
-			<code_completion />
-			<envvars />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
 				<resources>
@@ -4403,7 +4346,6 @@
 					<wxDialog wxs="plugins/codecompletion/wxsmith/goto_function.wxs" src="plugins/codecompletion/gotofunctiondlg.cpp" hdr="plugins/codecompletion/gotofunctiondlg.h" fwddecl="1" i18n="1" name="GotoFunctionDlg" language="CPP" />
 				</resources>
 			</wxsmith>
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

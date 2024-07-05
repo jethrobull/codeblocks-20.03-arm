@@ -90,8 +90,8 @@ LONG WINAPI CrashHandlerFunc(PEXCEPTION_POINTERS ExceptionInfo)
 
     wxString buf;
 #if !defined(_WIN64)
-    buf.Printf(_("The application encountered a crash at address %u.\n\n"),
-               (unsigned int) ExceptionInfo->ContextRecord->Eip);
+  //  buf.Printf(_("The application encountered a crash at address %u.\n\n"),
+//               (unsigned int) ExceptionInfo->ContextRecord->Eip);
 #endif
 
     if (EditorFilesNotSaved)
@@ -114,7 +114,7 @@ LONG WINAPI CrashHandlerFunc(PEXCEPTION_POINTERS ExceptionInfo)
 
         case IDIGNORE:
 #if !defined(_WIN64)
-        ExceptionInfo->ContextRecord->Eip += 2;
+     //   ExceptionInfo->ContextRecord->Eip += 2;
 #endif
         return EXCEPTION_CONTINUE_EXECUTION;
         break;

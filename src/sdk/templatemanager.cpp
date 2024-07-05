@@ -32,8 +32,8 @@
 #include "filefilters.h"
 #include "newfromtemplatedlg.h"
 
-template<> TemplateManager* Mgr<TemplateManager>::instance = nullptr;
-template<> bool  Mgr<TemplateManager>::isShutdown = false;
+template<class TemplateManager> TemplateManager* Mgr<TemplateManager>::instance = nullptr;
+template<class TemplateManager> bool  Mgr<TemplateManager>::isShutdown = false;
 
 TemplateManager::TemplateManager()
 {

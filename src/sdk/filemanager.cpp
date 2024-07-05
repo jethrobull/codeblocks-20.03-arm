@@ -23,8 +23,8 @@
 
 #include <memory>
 
-template<> FileManager* Mgr<FileManager>::instance = nullptr;
-template<> bool  Mgr<FileManager>::isShutdown = false;
+template<class FileManager> FileManager* Mgr<FileManager>::instance = nullptr;
+template<class FileManager> bool  Mgr<FileManager>::isShutdown = false;
 
 // ***** class: LoaderBase *****
 LoaderBase::~LoaderBase()

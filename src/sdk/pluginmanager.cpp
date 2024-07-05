@@ -51,8 +51,8 @@
 
 #include "scripting/bindings/sc_plugin.h"
 
-template<> PluginManager* Mgr<PluginManager>::instance = nullptr;
-template<> bool  Mgr<PluginManager>::isShutdown = false;
+template<class PluginManager> PluginManager* Mgr<PluginManager>::instance = nullptr;
+template<class PluginManager> bool  Mgr<PluginManager>::isShutdown = false;
 
 inline void VersionStringToNumbers(const wxString& version, long* major, long* minor, long* release)
 {

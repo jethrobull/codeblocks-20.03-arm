@@ -20,7 +20,7 @@
 
 #define PR_AF_INET6 23  /* same as AF_INET6 */
 
-#if defined(_M_IX86) || defined(_X86_)
+#if defined(_M_IX86) || defined(_X86_) || defined(_ARM_)
 
 #define IS_LITTLE_ENDIAN 1
 #undef  IS_BIG_ENDIAN

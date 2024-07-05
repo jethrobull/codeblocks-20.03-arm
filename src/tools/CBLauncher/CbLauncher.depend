@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1585402565 source:c:\users\user\source\codeblocks-20.03\src\tools\cblauncher\icon.rc
+	<windows.h>
+
+1585402565 source:c:\users\user\source\codeblocks-20.03\src\tools\cblauncher\launcher.cpp
+	<cstdio>
+	<windows.h>
+	<tlhelp32.h>
+	<wchar.h>
+

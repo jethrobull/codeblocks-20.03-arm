@@ -38,8 +38,8 @@
 
 using namespace std;
 
-template<> MacrosManager* Mgr<MacrosManager>::instance = nullptr;
-template<> bool  Mgr<MacrosManager>::isShutdown = false;
+template<class MacrosManager> MacrosManager* Mgr<MacrosManager>::instance = nullptr;
+template<class MacrosManager> bool  Mgr<MacrosManager>::isShutdown = false;
 
 static const wxString const_COIN(_T("COIN"));
 static const wxString const_RANDOM(_T("RANDOM"));

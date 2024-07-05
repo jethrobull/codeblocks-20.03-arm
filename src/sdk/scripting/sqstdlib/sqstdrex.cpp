@@ -2,7 +2,7 @@
 #include <squirrel.h>
 #include <string.h>
 #include <ctype.h>
-#include <setjmp.h>
+#include <C:\cb\MinGW\include\setjmp.h>
 #include "sqstdstring.h"
 
 // C::B patch: Fix wrong spelling of UNICODE
